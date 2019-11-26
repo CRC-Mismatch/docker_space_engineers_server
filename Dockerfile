@@ -24,8 +24,8 @@ RUN chmod +x /entrypoint.sh
 
 WORKDIR ${WORK}
 RUN wget -nc https://build.torchapi.net/job/Torch/job/Torch/job/master/lastSuccessfulBuild/artifact/bin/torch-server.zip \
-        && unzip torch-server.zip
-        && unzip Torch.zip
+        && unzip torch-server.zip \
+        && unzip Torch.zip \
         && unzip Torch2.zip
 ENTRYPOINT ["/entrypoint.sh"]
 

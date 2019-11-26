@@ -10,6 +10,9 @@ ENV SERVER_PORT 27016
 ENV GROUP_ID 0
 
 USER root
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends --no-install-suggests \
+		unzip
 RUN mkdir -p ${WORK}
 RUN mkdir -p ${CONFIG}
 WORKDIR /home/root

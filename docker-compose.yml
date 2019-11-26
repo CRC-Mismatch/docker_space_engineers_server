@@ -12,3 +12,4 @@ services:
      - WORLD_NAME=DockerWorld
      - STEAM_PORT=8766
      - SERVER_PORT=27016
+     - GROUP_ID=0

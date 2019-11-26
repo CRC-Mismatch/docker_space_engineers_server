@@ -52,4 +52,5 @@ sed -i 's=<LoadWorld>.*</LoadWorld>=<LoadWorld>Z:\\mnt\\root\\space-engineers-se
 sed -i 's=<InstanceName>.*</InstanceName>=<InstanceName>'${WORLD_NAME}'</InstanceName>=g' ${WORK}/Torch.cfg
 
 cd ${WORK}
+/home/root/steamcmd/steamcmd.sh +login anonymous +force_install_dir ${WORK} +app_update 298740 +quit
 wine Torch.Server.exe

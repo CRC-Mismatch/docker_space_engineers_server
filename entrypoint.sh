@@ -33,9 +33,9 @@ if [ -d ${WORK}/${WORLD_NAME} ]; then
 	chown -R root:root ${CONFIG}/Saves/${WORLD_NAME}
 fi
 
-if [ ! -f ${CONFIG}/SpaceEngineers-Dedicated.cfg ]; then
+if [ ! -f ${WORK}/Torch.cfg ]; then
 	# Copy standard config file to correct location
-	cp /home/root/SpaceEngineers-Dedicated.cfg ${CONFIG}
+	cp /home/root/Torch.cfg ${WORK}
 fi
 
 # Change ports
@@ -48,6 +48,8 @@ sed -i 's=<GroupID>.*</GroupID>=<GroupID>'${GROUP_ID}'</GroupID>=g' ${CONFIG}/Sp
 sed -i 's=<WorldName>.*</WorldName>=<WorldName>'${WORLD_NAME}'</WorldName>=g' ${CONFIG}/SpaceEngineers-Dedicated.cfg
 sed -i 's=<LoadWorld>.*</LoadWorld>=<LoadWorld>Z:\\mnt\\root\\space-engineers-server\\config\\Saves\\'${WORLD_NAME}'</LoadWorld>=g' ${CONFIG}/SpaceEngineers-Dedicated.cfg
 
-/home/root/steamcmd/steamcmd.sh +login anonymous +force_install_dir ${WORK} +app_update 298740 +quit
-cd ${WORK}/DedicatedServer64
-wine SpaceEngineersDedicated.exe -noconsole -ignorelastsession -path Z:\\mnt\\root\\space-engineers-server\\config
+# Change Torch settings
+sed -i 's=<InstanceName>.*</InstanceName>=<InstanceName>'${WORLD_NAME}'</InstanceName>=g' ${WORK}/Torch.cfg
+
+cd ${WORK}
+wine Torch.Server.exe

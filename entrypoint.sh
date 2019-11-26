@@ -44,6 +44,7 @@ sed -i 's=<ServerPort>.*</ServerPort>=<ServerPort>'${SERVER_PORT}'</ServerPort>=
 
 # Change save path to value from config
 sed -i 's=<ServerName>.*</ServerName>=<ServerName>'${SERVER_NAME}'</ServerName>=g' ${CONFIG}/SpaceEngineers-Dedicated.cfg
+sed -i 's=<GroupID>.*</GroupID>=<GroupID>'${GROUP_ID}'</GroupID>=g' ${CONFIG}/SpaceEngineers-Dedicated.cfg
 sed -i 's=<WorldName>.*</WorldName>=<WorldName>'${WORLD_NAME}'</WorldName>=g' ${CONFIG}/SpaceEngineers-Dedicated.cfg
 sed -i 's=<LoadWorld>.*</LoadWorld>=<LoadWorld>Z:\\mnt\\root\\space-engineers-server\\config\\Saves\\'${WORLD_NAME}'</LoadWorld>=g' ${CONFIG}/SpaceEngineers-Dedicated.cfg
 

@@ -15,9 +15,12 @@ RUN mkdir -p ${CONFIG}
 WORKDIR /home/root
 COPY entrypoint.sh /entrypoint.sh
 COPY SpaceEngineers-Dedicated.cfg /home/root/SpaceEngineers-Dedicated.cfg
+COPY Torch.cfg /home/root/Torch.cfg
 RUN chmod +x /entrypoint.sh
 
 WORKDIR ${WORK}
+RUN wget -nc https://build.torchapi.net/job/Torch/job/Torch/job/master/lastSuccessfulBuild/artifact/bin/torch-server.zip \
+        && unzip torch-server.zip
 ENTRYPOINT ["/entrypoint.sh"]
 
 VOLUME ${WORK}
